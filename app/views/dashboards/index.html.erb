@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<%= render 'nav', nav: 'received' %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Merit Money</h5>
+    <p class="card-text"><i class="fas fa-coins"></i> Meus Merit Money.</p>
+    <h1><%= @received %> $</h1>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Merit Money</h5>
+    <%= render 'table_received', merit_moneys: @receiveds %>
+  </div>
+</div>

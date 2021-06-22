@@ -1,0 +1,17 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>DONATION</th>
+      <th>VALUE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% merit_moneys.each do |item| %>
+      <tr>
+        <td><%= item.received.email_name %></td>
+        <td><%= item.value %> $</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

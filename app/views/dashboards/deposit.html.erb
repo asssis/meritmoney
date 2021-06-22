@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'nav', nav: 'deposit' %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Merit Money</h5>
+    <p class="card-text"><i class="fas fa-coins"></i> Saldo a Doar.</p>
+    <h1><%= @saldo%> $</h1>
+    <a href="/merit_moneys/new" class="btn btn-primary">DOAR</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Donation</h5>
+    <%= render 'table_donation', merit_moneys: @donations %>
+  </div>
+</div>
