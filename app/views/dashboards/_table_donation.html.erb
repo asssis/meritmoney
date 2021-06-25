@@ -4,15 +4,13 @@
     <tr>
       <th>DONATION</th>
       <th>VALUE</th>
-      <th>CONTROL</th>
     </tr>
   </thead>
   <tbody>
     <% merit_moneys.each do |item| %>
       <tr>
-        <td><%= item.deposit.email_name %></td>
+        <td><%= item.received.email_name %></td>
         <td><%= item.value %></td>
-        <td width="80px"><%= link_to 'Cancelar', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

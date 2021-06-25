@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+        .container, body, html, form{
+          height: 100%;
+        }
+        .button_to{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Olá, <%= @user.name %></h1>
+    <p>
+        Você ainda tem <%=@saldo%> $ merit moneys para doar!
+    </p>
+    <p>
+        Faça suas doações Agora <a href="http://localhost:3000/dashboards/">Clique Aqui</a>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <% 7.times do |i|%>
+        <%next if(Date.today <= @date.next_month(i - 4).end_of_month)%>
+        <li class="page-item <%= 'active' if(i - 3 == 0)%>">
+            <a class="page-link" href="/dashboard/rank/<%= @date.next_month(i - 3).strftime("%Y%m")%>">
+                <%= @date.next_month(i - 3).strftime("%Y/%m")%>
+            </a>
+        </li>
+    <% end %>
+  </ul>
+</nav>

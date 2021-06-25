@@ -1,0 +1,32 @@
+<div class="modal fade" id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title">Descrição</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="body-view">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function consultar_detalhes(user_id) {
+    $.ajax({
+        type: "GET",
+        url: `/merit_money/view_resume/${user_id}`,
+        dataType: "json",
+        success: function (json) {
+            table = json_to_table(json.receiveds);
+            $('#body-view').html(table);
+            $('#modal-title').html(json.name);
+            $('#detail').modal('show');
+        }
+    })
+}
+</script>

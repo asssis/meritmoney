@@ -1,12 +1,18 @@
 class HomesController < ApplicationController
-  layout 'home'
+  layout 'externo'
 
   # GET /homes or /homes.json
   def index
+    if(session['authentication'].blank?)
+    elsif( User.where(email: session['authentication']['email']).present?)
+      redirect_to '/dashboards'
+    end
   end
+
   def authentication
     user = User.new(get_params)
     check_user = User.where(email: user.email).first
+
     if(user.dominio == '')
       redirect_to('/homes')
     elsif(check_user.blank?)
