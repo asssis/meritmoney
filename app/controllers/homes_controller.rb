@@ -10,19 +10,26 @@ class HomesController < ApplicationController
   end
 
   def authentication
+    session['omniauth.state'] = SecureRandom.hex
     user = User.new(get_params)
     check_user = User.where(email: user.email).first
 
-    if(user.dominio == '')
-      redirect_to('/homes')
+    if(user.dominio != 'visagio.com')
+      respond_to do |format|
+        user = nil
+        format.html { redirect_to '/homes', notice: "Vocẽ não possui permissão." }
+      end
     elsif(check_user.blank?)
       user.permission = User.permissions[:user]
       user.save!
     else
       user = check_user
     end
-    session[:authentication] = user
-    redirect_to('/dashboards')
+
+    if(user.present?)
+      session[:authentication] = user
+      redirect_to('/dashboards')
+    end
   end
 
   def get_params
@@ -34,5 +41,4 @@ class HomesController < ApplicationController
     user['dominio'] = request.env['omniauth.auth']['extra']['raw_info']['hd']
     user
   end
-
 end

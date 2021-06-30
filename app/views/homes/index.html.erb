@@ -7,8 +7,22 @@
     justify-content: center;
     align-items: center;
   }
+  .mg-tp-40{
+    margin-top:40px;
+  }
 </style>
 
 
+<div class="card mg-tp-40 col-md-6" >
+  <div class="card-body">
 
-<%= button_to "Logar Google", "/auth/google_oauth2", class: 'btn btn-primary'%>
+    <%if(notice.present?)%>
+      <div class="alert alert-danger" role="alert">
+        <%=notice%>
+      </div>
+    <%end%>
+    <h3 class="card-title">Sing in</h3>
+    Sistema de Recompensa Colaborativa, Faça a doação para seus colegas.
+    <%= button_to "Entrar", "/auth/google_oauth2", class: 'btn btn-primary'%>
+  </div>
+</div>
