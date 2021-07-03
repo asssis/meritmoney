@@ -1,4 +1,4 @@
-#Criar Chave Secret do ominioauth no GOOGLE
+# Criar Chave Secret do ominioauth no GOOGLE
 
 => Você deve ter a conta da google
 
@@ -25,3 +25,11 @@ production:
 development:
   GOOGLE_CLIENT_SECRET: "XXX"
   GOOGLE_CLIENT_ID: "XXX"
+
+=> renomeie "database_exemplo.yml" ṕara "database.yml"
+=> coloque as variaveis de banco conforme o "start.sh"
+
+
+# email
+
+=> coloque as configurações em config/initializers/config_mail.rb

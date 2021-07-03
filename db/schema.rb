@@ -12,19 +12,22 @@
 
 ActiveRecord::Schema.define(version: 2021_06_22_235330) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "check_emails", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_check_emails_on_user_id"
   end
 
   create_table "merit_moneys", force: :cascade do |t|
-    t.integer "value", limit: 5
-    t.text "reason", limit: 200
+    t.bigint "value"
+    t.text "reason"
     t.string "reference", limit: 100
-    t.integer "deposit_id"
-    t.integer "received_id"
+    t.bigint "deposit_id"
+    t.bigint "received_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["deposit_id"], name: "index_merit_moneys_on_deposit_id"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_06_22_235330) do
     t.string "last_name", limit: 100
     t.string "dominio", limit: 100
     t.string "image", limit: 100
-    t.integer "permission", limit: 5
+    t.bigint "permission"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
