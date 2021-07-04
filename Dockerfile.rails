@@ -2,6 +2,7 @@ FROM ruby:2.6.6
 RUN apt-get update -qq && apt-get install -y curl postgresql-client
 
 #instalando node
+WORKDIR /app
 ENV NODE_VERSION 14
 ENV INSTALL_PATH /opt/app
 RUN curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash -
@@ -9,7 +10,6 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN apt-get update
 RUN apt install nodejs
 
-WORKDIR /app
 RUN npm install --global yarn
 
 COPY . /app
