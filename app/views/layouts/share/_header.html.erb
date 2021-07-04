@@ -2,7 +2,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+  <div class="collapse navbar-collapse">
     <a class="navbar-brand" href="#">Merit Money</a>
     <%# <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
@@ -12,8 +12,15 @@
        <a class="nav-link" href="#">Administradores</a>
       </li>
     </ul> %>
-    <div class="form-inline my-2 my-lg-0">
-
-    </div>
   </div>
+  <% if @user.present? %>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <img src="<%=@user.image%>" style="width: 33px;" alt="Usuário" class="rounded-circle">
+        </li>
+      </ul>
+    </div>
+  <% end %>
 </nav>
+

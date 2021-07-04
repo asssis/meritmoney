@@ -9,16 +9,18 @@
       <thead>
         <tr>
           <th>USER</th>
-          <th>TOTAL</th>
+          <th></th>
+          <th class="text-center">TOTAL</th>
           <th>VISUALIZAR</th>
         </tr>
       </thead>
       <tbody>
         <% @ranks.each do |item| %>
           <tr>
+            <td style="width:20px"><img src="<%=@user.image%>" style="width: 20px;" alt="Usuário" class="rounded-circle"></td>
             <td><%= item[:email_name] %></td>
-            <td><%= item[:total] %> $</td>
-            <td>
+            <td class="text-center col-md-5"><%= item[:total] %> $</td>
+            <td style="width: 90px;">
             <button type="button" class="btn btn-primary" onclick="consultar_detalhes(<%=item[:user_id]%>)">
                 Details
             </button>
