@@ -1,7 +1,18 @@
 FROM ruby:2.6.6
 RUN apt-get update -qq && apt-get install -y curl postgresql-client
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+#instalando node
+ENV NODE_VERSION 14
+ENV INSTALL_PATH /opt/app
+RUN curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash -
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN apt-get update
+RUN apt install nodejs
+
 WORKDIR /app
+RUN npm install --global yarn
+RUN yarn install --check-files
+
 COPY . /app
 RUN gem install bundler
 RUN bundle install
