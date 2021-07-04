@@ -33,3 +33,15 @@ development:
 # email
 
 => coloque as configurações em config/initializers/config_mail.rb
+
+
+# criar o banco de dados
+
+
+=> docker exec -it meritmoney rails db:create
+=> docker exec -it meritmoney rails db:migrate
+
+# entrar no container
+
+# docker exec -i -t meritmoney /bin/bash
+# docker exec -i -t meritmoney /bin/bash
