@@ -16,6 +16,9 @@ RUN yarn install --check-files
 COPY . /app
 RUN gem install bundler
 RUN bundle install
+RUN rails webpacker:install
+Run yarn install --check-files
+RUN assets:precompile
 
 EXPOSE 3000
 
