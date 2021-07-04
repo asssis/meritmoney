@@ -17,7 +17,7 @@ o link de redirecionamento deve ser o DNS + auth/google_oauth2/callback
 
 bundle exec figaro install
 
-=> e coloque em application.yml
+=> e coloque em config/application.yml
 
 production:
   GOOGLE_CLIENT_SECRET:  "XXX"
