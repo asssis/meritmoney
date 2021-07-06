@@ -17,7 +17,7 @@
       <tbody>
         <% @ranks.each do |item| %>
           <tr>
-            <td style="width:20px"><img src="<%=@user.image%>" style="width: 20px;" alt="Usuário" class="rounded-circle"></td>
+            <td style="width:20px"><img src="<%=item.image%>" style="width: 20px;" alt="Usuário" class="rounded-circle"></td>
             <td><%= item[:email_name] %></td>
             <td class="text-center col-md-5"><%= item[:total] %> $</td>
             <td style="width: 90px;">
