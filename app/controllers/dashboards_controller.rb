@@ -29,6 +29,7 @@ class DashboardsController < ApplicationController
       merit_money = MeritMoney.where(:created_at =>  @date.beginning_of_month...@date.end_of_month, received_id: item.id)
       rank[:total] = merit_money.inject(0) { |sum, product| sum += product.value }
       rank[:user_id] = item.id
+      rank[:image] = item.image
       @ranks << rank
     end
     @ranks = @ranks.sort {|a, b| a[:total] <=> b[:total]}.reverse
