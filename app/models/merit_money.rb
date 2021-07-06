@@ -13,8 +13,12 @@ class MeritMoney < ApplicationRecord
       donations = MeritMoney.where(:created_at => date.beginning_of_month...date.end_of_month, deposit_id: self.deposit_id)
       saldo = 100 - donations.inject(0) { |sum, product| sum += product.value }
       saldo = saldo - self.value
-      if(saldo <= 0)
-          errors.add(:value, "you can donated maximum #{saldo}")
+      if(self.value > 100)
+        errors.add(:value, "you can't donate more than 100 (cem)")
+      elsif(self.value <= 0)
+        errors.add(:value, "you can't donate less than 0 (zero)")
+      elsif(saldo < 0)
+        errors.add(:value, "you can donated maximum #{saldo}")
       end
     end
 end
