@@ -1,5 +1,5 @@
 FROM ruby:2.6.6
-RUN apt-get update -qq && apt-get install -y curl postgresql-client
+#RUN apt-get update -qq && apt-get install -y curl postgresql-client
 
 #instalando node
 WORKDIR /app
